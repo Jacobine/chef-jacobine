@@ -18,12 +18,5 @@
 #
 
 include_recipe "typo3analytics::composer"
-
-dataDirectory = node[:typo3analytics][:data_dir]
-directory "#{dataDirectory}" do
-	owner "vagrant"
-	group "vagrant"
-	mode "0766"
-	action :create
-	recursive true
-end
+include_recipe "typo3analytics::directories"
+include_recipe "typo3analytics::databases"

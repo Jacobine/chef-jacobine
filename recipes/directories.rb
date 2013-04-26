@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: typo3analytics
-# Attributes:: default
+# Recipe:: directories
 #
 # Copyright 2013, Andy Grunwald
 #
@@ -17,11 +17,11 @@
 # limitations under the License.
 #
 
-# Directory of composer-file to update
-default[:typo3analytics][:composer_file_dir] = "/vagrant"
-
-# Directory where downloaded data will be stored
-default[:typo3analytics][:data_dir] = "/var/data/TYPO3"
-
-# MySQL settings
-default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"
+dataDirectory = node[:typo3analytics][:data_dir]
+directory "#{dataDirectory}" do
+	owner "vagrant"
+	group "vagrant"
+	mode "0766"
+	action :create
+	recursive true
+end

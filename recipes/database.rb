@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: typo3analytics
-# Attributes:: default
+# Recipe:: databases
 #
 # Copyright 2013, Andy Grunwald
 #
@@ -17,11 +17,14 @@
 # limitations under the License.
 #
 
-# Directory of composer-file to update
-default[:typo3analytics][:composer_file_dir] = "/vagrant"
+# Copy SQL file to /tmp
+template "/tmp/database-scheme.sql" do
+	source "database-scheme.sql.erb"
+end
 
-# Directory where downloaded data will be stored
-default[:typo3analytics][:data_dir] = "/var/data/TYPO3"
-
-# MySQL settings
-default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"
+# Import sql scheme
+execute "import-mysql-schema" do
+	command "\"#{node['typo3analytics']['mysql_bin']}\" -u root < /tmp/database-scheme.sql"
+	action :run
+	only_if "\"#{node['typo3analytics']['mysql_bin']}\" -u root -e 'SHOW DATABASES;'"
+end
