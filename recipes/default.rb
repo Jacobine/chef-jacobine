@@ -19,4 +19,4 @@
 
 include_recipe "typo3analytics::composer"
 include_recipe "typo3analytics::directories"
-include_recipe "typo3analytics::databases"
+include_recipe "typo3analytics::database"
