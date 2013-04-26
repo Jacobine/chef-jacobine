@@ -19,3 +19,6 @@
 
 # Directory of composer-file to update
 default[:typo3analytics][:composer_file_dir] = "/vagrant"
+
+# Directory where downloaded data will be stored
+default[:typo3analytics][:data_dir] = "/var/data/TYPO3"
