@@ -15,5 +15,7 @@ CREATE TABLE IF NOT EXISTS `versions` (
 	`url_tar` varchar(40) DEFAULT NULL,
 	`url_zip` varchar(40) DEFAULT NULL,
 	`downloaded` tinyint(1) DEFAULT 0,
+	`extracted` tinyint(1) DEFAULT 0,
+	`size_tar` int(11) DEFAULT 0,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
