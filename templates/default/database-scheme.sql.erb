@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `versions` (
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `phploc` (
+CREATE TABLE IF NOT EXISTS `phploc` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique id of phploc record',
 	`version` int(11) unsigned NOT NULL COMMENT 'id field of version table',
 	`directories` int(11) unsigned DEFAULT '0' COMMENT 'Number of directories',
