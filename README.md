@@ -8,6 +8,7 @@ A checkout of [TYPO3-Analytics](https://github.com/andygrunwald/TYPO3-Analytics)
 
 #### packages
 - `composer`
+- `mysql`
 
 Attributes
 ----------

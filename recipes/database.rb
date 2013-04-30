@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "mysql::server"
+
 # Copy SQL file to /tmp
 template "/tmp/database-scheme.sql" do
 	source "database-scheme.sql.erb"
