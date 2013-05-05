@@ -18,6 +18,7 @@
 #
 
 dataDirectory = node[:typo3analytics][:data_dir]
+
 directory "#{dataDirectory}" do
 	owner "vagrant"
 	group "vagrant"
