@@ -20,7 +20,7 @@
 include_recipe "composer"
 
 # composer update
-execute "Composer update" do
+execute "composer-update" do
 	user "root"
 	cwd node[:typo3analytics][:composer_file_dir]
 	command "composer update"
