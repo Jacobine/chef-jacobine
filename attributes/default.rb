@@ -23,5 +23,8 @@ default[:typo3analytics][:composer_file_dir] = "/vagrant"
 # Directory where downloaded data will be stored
 default[:typo3analytics][:data_dir] = "/var/data/TYPO3"
 
+# Directory to store the log files
+default[:typo3analytics][:log_dir] = "/var/log/application"
+
 # MySQL settings
 default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"

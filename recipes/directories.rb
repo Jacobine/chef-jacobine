@@ -26,3 +26,13 @@ directory "#{dataDirectory}" do
 	action :create
 	recursive true
 end
+
+logDirectory = node[:typo3analytics][:log_dir]
+
+directory "#{logDirectory}" do
+	owner "vagrant"
+	group "vagrant"
+	mode "0766"
+	action :create
+	recursive true
+end
