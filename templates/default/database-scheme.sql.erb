@@ -60,6 +60,6 @@ CREATE TABLE IF NOT EXISTS `linguist` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique id of linguist record',
 	`version` int(11) unsigned NOT NULL COMMENT 'id field of version table',
 	`percent` decimal(5,2) unsigned DEFAULT '0.00' COMMENT 'Percent of programming language',
-	`language` varchar(40) unsigned DEFAULT '0' COMMENT 'Programming language'
+	`language` varchar(40) unsigned DEFAULT '0' COMMENT 'Programming language',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
