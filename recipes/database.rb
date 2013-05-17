@@ -30,3 +30,10 @@ execute "import-mysql-schema" do
 	action :run
 	only_if "\"#{node['typo3analytics']['mysql_bin']}\" -u root -e 'SHOW DATABASES;'"
 end
+
+# Setup Gerrie database
+execute "create-gerrie-database" do
+	cwd node[:typo3analytics][:gerrie_dir]
+	command "php console gerrie:create-database --configFile=#{node[:typo3analytics][:gerrie_configfile]}"
+	action :run
+end

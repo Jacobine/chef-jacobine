@@ -28,3 +28,7 @@ default[:typo3analytics][:log_dir] = "/var/log/application"
 
 # MySQL settings
 default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"
+
+# Gerrie settings
+default[:typo3analytics][:gerrie_dir] = "/var/application/vendor/andygrunwald/Gerrie"
+default[:typo3analytics][:gerrie_configfile] = "/var/application/Config/gerrit-review.typo3.org.yml"
