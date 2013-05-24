@@ -63,3 +63,11 @@ CREATE TABLE IF NOT EXISTS `linguist` (
 	`language` varchar(40) DEFAULT '' COMMENT 'Programming language',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `gitweb` (
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique id of gitweb project',
+	`name` varchar(200) DEFAULT NULL COMMENT 'Name of git project',
+	`git` varchar(200) DEFAULT NULL COMMENT 'Address of git repository',
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `git` (`git`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
