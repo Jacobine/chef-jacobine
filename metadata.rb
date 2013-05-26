@@ -8,4 +8,3 @@ version          '1.0.1'
 
 depends "composer"
 depends "mysql"
-depends "ssh_known_hosts"

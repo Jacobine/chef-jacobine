@@ -17,8 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe "ssh_known_hosts"
-
 # Manually SSH Key deployment
 # There must be a better way ... If you know one
 # Please let me know
@@ -32,7 +30,7 @@ end
 
 # Set correct system rights
 execute "correct-rights-id_rsa" do
-	command "chmod 0600 /home/vagrant/.ssh/id_rsa"
+	command "chmod 0644 /home/vagrant/.ssh/id_rsa"
 	only_if "[ -f /home/vagrant/.ssh/id_rsa ] || exit 1"
 end
 
@@ -45,6 +43,3 @@ end
 execute "eval-ssh-agent" do
 	command "eval `ssh-agent`"
 end
-
-# Add ssh known hosts
-ssh_known_hosts_entry "review.typo3.org"
