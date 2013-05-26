@@ -17,6 +17,15 @@
 # limitations under the License.
 #
 
+# MySQL python lib
 python_pip "MySQL-python" do
+	action :install
+end
+
+# SQLLite python lib
+# Needed for CVSAnaly extensions
+package "libsqlite3-dev"
+
+python_pip "pysqlite" do
 	action :install
 end
