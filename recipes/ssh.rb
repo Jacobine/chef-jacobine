@@ -40,6 +40,10 @@ execute "correct-rights-id_rsa.pub" do
 end
 
 # Start ssh-agent
-execute "eval-ssh-agent" do
-	command "eval `ssh-agent`"
+template "/etc/profile.d/ssh-agent.sh" do
+	source "ssh-agent.sh.erb"
+	owner  "root"
+	mode   "0755"
 end
+
+execute "/etc/profile.d/ssh-agent.sh"
