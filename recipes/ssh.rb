@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "ssh_known_hosts"
+
 # Manually SSH Key deployment
 # There must be a better way ... If you know one
 # Please let me know
@@ -43,3 +45,6 @@ end
 execute "eval-ssh-agent" do
 	command "eval `ssh-agent`"
 end
+
+# Add ssh known hosts
+ssh_known_hosts "review.typo3.org"
