@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: typo3analytics
-# Recipe:: default
+# Recipe:: ssh
 #
 # Copyright 2013, Andy Grunwald
 #
@@ -17,8 +17,22 @@
 # limitations under the License.
 #
 
-include_recipe "typo3analytics::python"
-include_recipe "typo3analytics::composer"
-include_recipe "typo3analytics::directories"
-include_recipe "typo3analytics::database"
-include_recipe "typo3analytics::ssh"
+# Manually SSH Key deployment
+# There must be a better way ... If you know one
+# Please let me know
+keysToDeploy = %w(%w(id_rsa 0600) %w(id_rsa.pub 0644))
+
+keysToDeploy.each do |keyfileconfig|
+	file "/home/vagrant/.ssh/#{keyfileconfig[0]}" do
+		content IO.read("/vagrant/Credentials/#{keyfileconfig[0]}")
+		mode "0#{keyfileconfig[1]}"
+	end
+end
+
+# Start ssh-agent
+execute "eval-ssh-agent" do
+	command "eval `ssh-agent`"
+end
+
+# @todo ssh-add
+# @todo add a entry in known hosts
