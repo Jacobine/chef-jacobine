@@ -20,19 +20,26 @@
 # Manually SSH Key deployment
 # There must be a better way ... If you know one
 # Please let me know
-keysToDeploy = %w(%w(id_rsa 0600) %w(id_rsa.pub 0644))
+keysToDeploy = %w(id_rsa id_rsa.pub)
 
-keysToDeploy.each do |keyfileconfig|
-	file "/home/vagrant/.ssh/#{keyfileconfig[0]}" do
-		content IO.read("/vagrant/Credentials/#{keyfileconfig[0]}")
-		mode "0#{keyfileconfig[1]}"
+keysToDeploy.each do |keyfile|
+	file "/home/vagrant/.ssh/#{keyfile}" do
+		content IO.read("/vagrant/Credentials/#{keyfile}")
 	end
+end
+
+# Set correct system rights
+execute "correct-rights-id_rsa" do
+	command "chmod 0600 /home/vagrant/.ssh/id_rsa"
+	only_if "[ -f /home/vagrant/.ssh/id_rsa ] || exit 1"
+end
+
+execute "correct-rights-id_rsa.pub" do
+	command "chmod 0644 /home/vagrant/.ssh/id_rsa.pub"
+	only_if "[ -f /home/vagrant/.ssh/id_rsa.pub ] || exit 1"
 end
 
 # Start ssh-agent
 execute "eval-ssh-agent" do
 	command "eval `ssh-agent`"
 end
-
-# @todo ssh-add
-# @todo add a entry in known hosts
