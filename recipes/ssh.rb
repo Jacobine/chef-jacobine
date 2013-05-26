@@ -47,4 +47,4 @@ execute "eval-ssh-agent" do
 end
 
 # Add ssh known hosts
-ssh_known_hosts "review.typo3.org"
+ssh_known_hosts_entry "review.typo3.org"
