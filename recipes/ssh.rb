@@ -24,7 +24,7 @@ keysToDeploy = %w(id_rsa id_rsa.pub)
 
 keysToDeploy.each do |keyfile|
 	file "/home/vagrant/.ssh/#{keyfile}" do
-		content IO.read("/vagrant/Credentials/#{keyfile}")
+		content IO.read("/var/application/Config/#{keyfile}")
 	end
 end
 
