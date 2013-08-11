@@ -18,6 +18,7 @@
 #
 
 include_recipe "mysql::server"
+include_recipe "database::mysql"
 
 # Copy SQL file to /tmp
 template "/tmp/database-scheme.sql" do
@@ -45,11 +46,20 @@ mysql_connection_info = {
 	:password => ''
 }
 
-database_user 'analysis' do
+mySqlUser = node[:typo3analytics][:mysql_user][:username]
+
+database_user '#{mySqlUser}' do
 	connection mysql_connection_info
 	password 'analysis'
 	provider Chef::Provider::Database::MysqlUser
-	database_name 'typo3'
+	action :create
+end
+
+database_user '#{mySqlUser}' do
+	connection mysql_connection_info
+	password node[:typo3analytics][:mysql_user][:password]
+	provider Chef::Provider::Database::MysqlUser
+	database_name node[:typo3analytics][:mysql_user][:database]
 	privileges [:select,:update,:insert,:alter,:create,:delete,:drop]
 	action :grant
 end
