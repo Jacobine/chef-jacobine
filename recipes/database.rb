@@ -37,3 +37,19 @@ execute "create-gerrie-database" do
 	command "php console gerrie:create-database --configFile=#{node[:typo3analytics][:gerrie_configfile]}"
 	action :run
 end
+
+# Add a new MySQL user
+mysql_connection_info = {
+	:host => "localhost",
+	:username => 'root',
+	:password => ''
+}
+
+database_user 'analysis' do
+	connection mysql_connection_info
+	password 'analysis'
+	provider Chef::Provider::Database::MysqlUser
+	database_name 'typo3'
+	privileges [:select,:update,:insert,:alter,:create,:delete,:drop]
+	action :grant
+end
