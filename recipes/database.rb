@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+include_recipe "mysql::ruby"
 include_recipe "mysql::server"
 
 # Copy SQL file to /tmp
