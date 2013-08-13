@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe "mysql::ruby"
 include_recipe "mysql::server"
+include_recipe "database::mysql"
 
 # Copy SQL file to /tmp
 template "/tmp/database-scheme.sql" do
