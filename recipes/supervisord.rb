@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: typo3analytics
-# Recipe:: default
+# Recipe:: supervisord
 #
 # Copyright 2013, Andy Grunwald
 #
@@ -17,9 +17,14 @@
 # limitations under the License.
 #
 
-include_recipe "typo3analytics::python"
-include_recipe "typo3analytics::composer"
-include_recipe "typo3analytics::directories"
-include_recipe "typo3analytics::database"
-include_recipe "typo3analytics::ssh"
-include_recipe "typo3analytics::supervisord"
+include_recipe "supervisor"
+
+supervisor_service "consumer-download-git" do
+	command "php /var/application/console analysis:consumer Download\\\\Git"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 2
+ 	autorestart true
+	autostart true
+
+	action :enable
+end
