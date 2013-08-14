@@ -19,12 +19,95 @@
 
 include_recipe "supervisor"
 
+# Consumer: Download\\Git
 supervisor_service "consumer-download-git" do
 	command "php /var/application/console analysis:consumer Download\\\\Git"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 2
- 	autorestart true
+	autorestart true
 	autostart true
 
 	action :enable
 end
+
+# Consumer: Download\\HTTP
+supervisor_service "consumer-download-http" do
+	command "php /var/application/console analysis:consumer Download\\\\HTTP"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 2
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# Consumer: Extract\\Targz
+supervisor_service "consumer-extract-targz" do
+	command "php /var/application/console analysis:consumer Extract\\\\Targz"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 1
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# Consumer: Crawler\\Gitweb
+supervisor_service "consumer-crawler-gitweb" do
+	command "php /var/application/console analysis:consumer Crawler\\\\Gitweb"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 1
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# Consumer: Analysis\\Filesize
+supervisor_service "consumer-analysis-filesize" do
+	command "php /var/application/console analysis:consumer Analysis\\\\Filesize"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 1
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# Consumer: Analysis\\GithubLinguist
+supervisor_service "consumer-analysis-githublinguist" do
+	command "php /var/application/console analysis:consumer Analysis\\\\GithubLinguist"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 1
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# Consumer: Analysis\\PHPLoc
+supervisor_service "consumer-analysis-phploc" do
+	command "php /var/application/console analysis:consumer Analysis\\\\PHPLoc"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 2
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# Consumer: Analysis\\CVSAnaly
+supervisor_service "consumer-analysis-cvsanaly" do
+	command "php /var/application/console analysis:consumer Analysis\\\\CVSAnaly"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 3
+	autorestart true
+	autostart true
+
+	action :enable
+end
+
+# @todo add Crawler\\Gerrit && Crawler\\GerritProject
+# Why are they not added yet?
+# Because this Gerrit consumer works over SSH and to enable
+# SSH connection to Gerrit you have to add your SSH key
