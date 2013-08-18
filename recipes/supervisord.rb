@@ -19,9 +19,11 @@
 
 include_recipe "supervisor"
 
+consoleBin = node[:typo3analytics][:console_bin]
+
 # Consumer: Download\\Git
 supervisor_service "consumer-download-git" do
-	command "php /var/application/console analysis:consumer Download\\\\Git"
+	command "php #{consoleBin} analysis:consumer Download\\\\Git"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 2
 	autorestart true
@@ -32,7 +34,7 @@ end
 
 # Consumer: Download\\HTTP
 supervisor_service "consumer-download-http" do
-	command "php /var/application/console analysis:consumer Download\\\\HTTP"
+	command "php #{consoleBin} analysis:consumer Download\\\\HTTP"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 2
 	autorestart true
@@ -43,7 +45,7 @@ end
 
 # Consumer: Extract\\Targz
 supervisor_service "consumer-extract-targz" do
-	command "php /var/application/console analysis:consumer Extract\\\\Targz"
+	command "php #{consoleBin} analysis:consumer Extract\\\\Targz"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 1
 	autorestart true
@@ -54,7 +56,7 @@ end
 
 # Consumer: Crawler\\Gitweb
 supervisor_service "consumer-crawler-gitweb" do
-	command "php /var/application/console analysis:consumer Crawler\\\\Gitweb"
+	command "php #{consoleBin} analysis:consumer Crawler\\\\Gitweb"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 1
 	autorestart true
@@ -65,7 +67,7 @@ end
 
 # Consumer: Analysis\\Filesize
 supervisor_service "consumer-analysis-filesize" do
-	command "php /var/application/console analysis:consumer Analysis\\\\Filesize"
+	command "php #{consoleBin} analysis:consumer Analysis\\\\Filesize"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 1
 	autorestart true
@@ -76,7 +78,7 @@ end
 
 # Consumer: Analysis\\GithubLinguist
 supervisor_service "consumer-analysis-githublinguist" do
-	command "php /var/application/console analysis:consumer Analysis\\\\GithubLinguist"
+	command "php #{consoleBin} analysis:consumer Analysis\\\\GithubLinguist"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 1
 	autorestart true
@@ -87,7 +89,7 @@ end
 
 # Consumer: Analysis\\PHPLoc
 supervisor_service "consumer-analysis-phploc" do
-	command "php /var/application/console analysis:consumer Analysis\\\\PHPLoc"
+	command "php #{consoleBin} analysis:consumer Analysis\\\\PHPLoc"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 2
 	autorestart true
@@ -98,7 +100,7 @@ end
 
 # Consumer: Analysis\\CVSAnaly
 supervisor_service "consumer-analysis-cvsanaly" do
-	command "php /var/application/console analysis:consumer Analysis\\\\CVSAnaly"
+	command "php #{consoleBin} analysis:consumer Analysis\\\\CVSAnaly"
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 3
 	autorestart true

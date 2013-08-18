@@ -40,3 +40,6 @@ default[:typo3analytics][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-
 
 # SSH Keys
 default[:typo3analytics][:ssh_keys_dir] = "/var/www/analysis/Config"
+
+# Binaries
+default[:typo3analytics][:console_bin] = "/var/www/analysis/console"
