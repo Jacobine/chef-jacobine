@@ -18,13 +18,13 @@
 #
 
 # Directory of composer-file to update
-default[:typo3analytics][:composer_file_dir] = "/vagrant"
+default[:typo3analytics][:composer_file_dir] = "/var/www/analysis"
 
 # Directory where downloaded data will be stored
-default[:typo3analytics][:data_dir] = "/var/data/TYPO3"
+default[:typo3analytics][:data_dir] = "/var/www/analysis/data/TYPO3"
 
 # Directory to store the log files
-default[:typo3analytics][:log_dir] = "/var/log/application"
+default[:typo3analytics][:log_dir] = "/var/log/analysis"
 
 # MySQL settings
 default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"
@@ -35,5 +35,8 @@ default[:typo3analytics][:mysql_user][:password] = "analysis"
 default[:typo3analytics][:mysql_user][:database] = "typo3"
 
 # Gerrie settings
-default[:typo3analytics][:gerrie_dir] = "/var/application/vendor/andygrunwald/Gerrie"
-default[:typo3analytics][:gerrie_configfile] = "/var/application/Config/gerrit-review.typo3.org.yml"
+default[:typo3analytics][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/Gerrie"
+default[:typo3analytics][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-review.typo3.org.yml"
+
+# SSH Keys
+default[:typo3analytics][:ssh_keys_dir] = "/var/www/analysis/Config"

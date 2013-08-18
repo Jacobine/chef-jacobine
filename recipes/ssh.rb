@@ -20,11 +20,12 @@
 # Manually SSH Key deployment
 # There must be a better way ... If you know one
 # Please let me know
+pathToKeys = node[:typo3analytics][:ssh_keys_dir]
 keysToDeploy = %w(id_rsa id_rsa.pub)
 
 keysToDeploy.each do |keyfile|
 	file "/home/vagrant/.ssh/#{keyfile}" do
-		content IO.read("/var/application/Config/#{keyfile}")
+		content IO.read("#{pathToKeys}/#{keyfile}")
 	end
 end
 
