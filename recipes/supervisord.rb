@@ -20,6 +20,7 @@
 include_recipe "supervisor"
 
 consoleBin = node[:typo3analytics][:console_bin]
+supervisordUser = node[:typo3analytics][:supervisord_user]
 
 # Consumer: Download\\Git
 supervisor_service "consumer-download-git" do
@@ -28,6 +29,7 @@ supervisor_service "consumer-download-git" do
 	numprocs 2
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -39,6 +41,7 @@ supervisor_service "consumer-download-http" do
 	numprocs 2
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -50,6 +53,7 @@ supervisor_service "consumer-extract-targz" do
 	numprocs 1
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -61,6 +65,7 @@ supervisor_service "consumer-crawler-gitweb" do
 	numprocs 1
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -72,6 +77,7 @@ supervisor_service "consumer-analysis-filesize" do
 	numprocs 1
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -83,6 +89,7 @@ supervisor_service "consumer-analysis-githublinguist" do
 	numprocs 1
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -94,6 +101,7 @@ supervisor_service "consumer-analysis-phploc" do
 	numprocs 2
 	autorestart true
 	autostart true
+	user supervisordUser
 
 	action :enable
 end
@@ -104,7 +112,8 @@ supervisor_service "consumer-analysis-cvsanaly" do
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 3
 	autorestart true
-	autostart true
+	autostart tru
+	user supervisordUser
 
 	action :enable
 end

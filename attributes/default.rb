@@ -43,3 +43,6 @@ default[:typo3analytics][:ssh_keys_dir] = "/var/www/analysis/Config"
 
 # Binaries
 default[:typo3analytics][:console_bin] = "/var/www/analysis/console"
+
+# Supervisord
+default[:typo3analytics][:supervisord_user] = "vagrant"
