@@ -112,7 +112,7 @@ supervisor_service "consumer-analysis-cvsanaly" do
 	process_name "%(program_name)s_%(process_num)02d"
 	numprocs 3
 	autorestart true
-	autostart tru
+	autostart true
 	user supervisordUser
 
 	action :enable
