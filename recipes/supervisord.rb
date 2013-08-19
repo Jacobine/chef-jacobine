@@ -106,6 +106,9 @@ supervisor_service "consumer-analysis-phploc" do
 	action :enable
 end
 
+repositoryHandlerDir = node[:repositoryhandler][:destination]
+cvsAnalyDir = node[:cvsanaly][:destination]
+
 # Consumer: Analysis\\CVSAnaly
 supervisor_service "consumer-analysis-cvsanaly" do
 	command "php #{consoleBin} analysis:consumer Analysis\\\\CVSAnaly"
@@ -114,6 +117,7 @@ supervisor_service "consumer-analysis-cvsanaly" do
 	autorestart true
 	autostart true
 	user supervisordUser
+	environment(:PYTHONPATH => "$PYTHONPATH:#{repositoryHandlerDir}:#{cvsAnalyDir}", :PATH => "$PATH:#{cvsAnalyDir}")
 
 	action :enable
 end
