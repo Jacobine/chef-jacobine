@@ -117,7 +117,7 @@ supervisor_service "consumer-analysis-cvsanaly" do
 	autorestart true
 	autostart true
 	user supervisordUser
-	environment(:PYTHONPATH => "$PYTHONPATH:#{repositoryHandlerDir}:#{cvsAnalyDir}", :PATH => "$PATH:#{cvsAnalyDir}")
+	environment(:PYTHONPATH => "#{repositoryHandlerDir}:#{cvsAnalyDir}", :PATH => "/usr/local/bin:/usr/bin:/bin:#{cvsAnalyDir}")
 
 	action :enable
 end
