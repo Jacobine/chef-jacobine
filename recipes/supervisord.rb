@@ -113,7 +113,7 @@ cvsAnalyDir = node[:cvsanaly][:destination]
 supervisor_service "consumer-analysis-cvsanaly" do
 	command "php #{consoleBin} analysis:consumer Analysis\\\\CVSAnaly"
 	process_name "%(program_name)s_%(process_num)02d"
-	numprocs 3
+	numprocs 1
 	autorestart true
 	autostart true
 	user supervisordUser
