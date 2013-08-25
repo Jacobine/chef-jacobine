@@ -19,7 +19,7 @@
 
 # Composer
 # Directory of composer-file to update
-default[:typo3analytics][:composer_file_dir] = "/var/www/analysis"
+default[:typo3analytics][:application_dir] = "/var/www/analysis"
 # User who will execute the update
 default[:typo3analytics][:composer_update_user] = "root"
 

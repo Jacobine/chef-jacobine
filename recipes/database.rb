@@ -20,25 +20,6 @@
 include_recipe "mysql::server"
 include_recipe "database::mysql"
 
-# Copy SQL file
-template "#{Chef::Config[:file_cache_path]}/database-scheme.sql" do
-	source "database-scheme.sql.erb"
-end
-
-# Import sql scheme
-execute "import-mysql-schema" do
-	command "\"#{node['typo3analytics']['mysql_bin']}\" -u root < #{Chef::Config[:file_cache_path]}/database-scheme.sql"
-	action :run
-	only_if "\"#{node['typo3analytics']['mysql_bin']}\" -u root -e 'SHOW DATABASES;'"
-end
-
-# Setup Gerrie database
-execute "Create Gerrie database" do
-	cwd node[:typo3analytics][:gerrie_dir]
-	command "#{node[:typo3analytics][:php_bin]} console gerrie:create-database --configFile=#{node[:typo3analytics][:gerrie_configfile]}"
-	action :run
-end
-
 # Add a new MySQL user
 mysql_connection_info = {
 	:host => node[:typo3analytics][:mysql_host],
@@ -62,4 +43,18 @@ database_user node[:typo3analytics][:mysql_user][:username] do
 	database_name node[:typo3analytics][:mysql_user][:database]
 	privileges [:select,:update,:insert,:alter,:create,:delete,:drop]
 	action :grant
+end
+
+# Import sql scheme
+execute "Create TYPO3 analysis sql scheme" do
+	command "\"#{node['typo3analytics']['mysql_bin']}\" -u root < #{node[:typo3analytics][:application_dir]}/Database/database-scheme.sql"
+	action :run
+	only_if "\"#{node['typo3analytics']['mysql_bin']}\" -u root -e 'SHOW DATABASES;'"
+end
+
+# Setup Gerrie database
+execute "Create Gerrie database" do
+	cwd node[:typo3analytics][:gerrie_dir]
+	command "#{node[:typo3analytics][:php_bin]} console gerrie:create-database --configFile=#{node[:typo3analytics][:gerrie_configfile]}"
+	action :run
 end

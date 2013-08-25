@@ -22,7 +22,7 @@ include_recipe "composer"
 # composer update
 execute "composer-update" do
 	user node[:typo3analytics][:composer_update_user]
-	cwd node[:typo3analytics][:composer_file_dir]
+	cwd node[:typo3analytics][:application_dir]
 	command "composer update"
 	action :run
 end
