@@ -17,8 +17,11 @@
 # limitations under the License.
 #
 
+# Composer
 # Directory of composer-file to update
 default[:typo3analytics][:composer_file_dir] = "/var/www/analysis"
+# User who will execute the update
+default[:typo3analytics][:composer_update_user] = "root"
 
 # Directory where downloaded data will be stored
 default[:typo3analytics][:data_dir] = "/var/www/analysis-data/TYPO3"
