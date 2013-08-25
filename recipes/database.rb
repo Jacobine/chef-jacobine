@@ -45,11 +45,16 @@ database_user node[:typo3analytics][:mysql_user][:username] do
 	action :grant
 end
 
+databaseUserString = node[:typo3analytics][:mysql_root][:username]
+if node[:typo3analytics][:mysql_root][:password].to_s != ""
+	databaseUserString = databaseUserString + " -p" + node[:typo3analytics][:mysql_root][:password]
+end
+
 # Import sql scheme
 execute "Create TYPO3 analysis sql scheme" do
-	command "\"#{node['typo3analytics']['mysql_bin']}\" -u root < #{node[:typo3analytics][:application_dir]}/Database/database-scheme.sql"
+	command "\"#{node['typo3analytics']['mysql_bin']}\" -u #{databaseUserString} < #{node[:typo3analytics][:application_dir]}/Database/database-scheme.sql"
 	action :run
-	only_if "\"#{node['typo3analytics']['mysql_bin']}\" -u root -e 'SHOW DATABASES;'"
+	only_if "\"#{node['typo3analytics']['mysql_bin']}\" -u #{databaseUserString} -e 'SHOW DATABASES;'"
 end
 
 # Setup Gerrie database
