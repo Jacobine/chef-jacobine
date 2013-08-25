@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe "mysql::server"
 include_recipe "database::mysql"
 
 # Add a new MySQL user
