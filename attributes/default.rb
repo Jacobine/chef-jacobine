@@ -17,9 +17,15 @@
 # limitations under the License.
 #
 
-# Composer
-# Directory of composer-file to update
+# Application
 default[:typo3analytics][:application_dir] = "/var/www/analysis"
+default[:typo3analytics][:application_dir_user] = "vagrant"
+default[:typo3analytics][:application_dir_group] = "vagrant"
+
+default[:typo3analytics][:git_repository] = "https://github.com/andygrunwald/TYPO3-Analytics.git"
+default[:typo3analytics][:git_revision] = "master"
+
+# Composer
 # User who will execute the update
 default[:typo3analytics][:composer_update_user] = "root"
 
