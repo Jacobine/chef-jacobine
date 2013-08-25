@@ -55,7 +55,7 @@ default[:typo3analytics][:mysql_user][:password] = "analysis"
 default[:typo3analytics][:mysql_user][:database] = "typo3"
 
 # Gerrie settings
-default[:typo3analytics][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/Gerrie"
+default[:typo3analytics][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/gerrie"
 default[:typo3analytics][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-review.typo3.org.yml"
 
 # SSH Keys
