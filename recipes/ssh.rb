@@ -23,9 +23,12 @@
 pathToKeys = node[:typo3analytics][:ssh_keys_dir]
 keysToDeploy = %w(id_rsa id_rsa.pub)
 
+# Copy keys
 keysToDeploy.each do |keyfile|
-	file "/home/vagrant/.ssh/#{keyfile}" do
-		content IO.read("#{pathToKeys}/#{keyfile}")
+	if File.exists?("#{pathToKeys}/#{keyfile}")
+		file "/home/vagrant/.ssh/#{keyfile}" do
+			content IO.read("#{pathToKeys}/#{keyfile}")
+		end
 	end
 end
 
