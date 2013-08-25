@@ -33,10 +33,17 @@ default[:typo3analytics][:log_dir] = "/var/log/analysis"
 default[:typo3analytics][:log_dir_user] = "vagrant"
 default[:typo3analytics][:log_dir_group] = "vagrant"
 
+# PHP settings
+default[:typo3analytics][:php_bin] = "/usr/bin/php"
+
 # MySQL settings
 default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"
+default[:typo3analytics][:mysql_host] = "localhost"
 
 # MySQL user
+default[:typo3analytics][:mysql_root][:username] = "root"
+default[:typo3analytics][:mysql_root][:password] = ""
+
 default[:typo3analytics][:mysql_user][:username] = "analysis"
 default[:typo3analytics][:mysql_user][:password] = "analysis"
 default[:typo3analytics][:mysql_user][:database] = "typo3"

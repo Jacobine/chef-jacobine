@@ -33,29 +33,29 @@ execute "import-mysql-schema" do
 end
 
 # Setup Gerrie database
-execute "create-gerrie-database" do
+execute "Create Gerrie database" do
 	cwd node[:typo3analytics][:gerrie_dir]
-	command "php console gerrie:create-database --configFile=#{node[:typo3analytics][:gerrie_configfile]}"
+	command "#{node[:typo3analytics][:php_bin]} console gerrie:create-database --configFile=#{node[:typo3analytics][:gerrie_configfile]}"
 	action :run
 end
 
 # Add a new MySQL user
 mysql_connection_info = {
-	:host => "localhost",
-	:username => 'root',
-	:password => ''
+	:host => node[:typo3analytics][:mysql_host],
+	:username => node[:typo3analytics][:mysql_root][:username],
+	:password => node[:typo3analytics][:mysql_root][:password]
 }
 
-mySqlUser = node[:typo3analytics][:mysql_user][:username]
-
-database_user '#{mySqlUser}' do
+# Create new MySQL user
+database_user node[:typo3analytics][:mysql_user][:username] do
 	connection mysql_connection_info
-	password 'analysis'
+	password node[:typo3analytics][:mysql_user][:password]
 	provider Chef::Provider::Database::MysqlUser
 	action :create
 end
 
-database_user '#{mySqlUser}' do
+# Grant access to new MySQL user
+database_user node[:typo3analytics][:mysql_user][:username] do
 	connection mysql_connection_info
 	password node[:typo3analytics][:mysql_user][:password]
 	provider Chef::Provider::Database::MysqlUser
