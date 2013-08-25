@@ -25,9 +25,13 @@ default[:typo3analytics][:composer_update_user] = "root"
 
 # Directory where downloaded data will be stored
 default[:typo3analytics][:data_dir] = "/var/www/analysis-data/TYPO3"
+default[:typo3analytics][:data_dir_user] = "vagrant"
+default[:typo3analytics][:data_dir_group] = "vagrant"
 
 # Directory to store the log files
 default[:typo3analytics][:log_dir] = "/var/log/analysis"
+default[:typo3analytics][:log_dir_user] = "vagrant"
+default[:typo3analytics][:log_dir_group] = "vagrant"
 
 # MySQL settings
 default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"

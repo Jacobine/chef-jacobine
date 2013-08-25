@@ -17,21 +17,19 @@
 # limitations under the License.
 #
 
-dataDirectory = node[:typo3analytics][:data_dir]
-
-directory "#{dataDirectory}" do
-	owner "vagrant"
-	group "vagrant"
+# Data directory
+directory node[:typo3analytics][:data_dir] do
+	owner node[:typo3analytics][:data_dir_user]
+	group node[:typo3analytics][:data_dir_group]
 	mode "0766"
 	action :create
 	recursive true
 end
 
-logDirectory = node[:typo3analytics][:log_dir]
-
-directory "#{logDirectory}" do
-	owner "vagrant"
-	group "vagrant"
+# Log directory
+directory node[:typo3analytics][:log_dir] do
+	owner node[:typo3analytics][:log_dir_user]
+	group node[:typo3analytics][:log_dir_group]
 	mode "0766"
 	action :create
 	recursive true
