@@ -40,7 +40,7 @@ database_user node[:typo3analytics][:mysql_user][:username] do
 	password node[:typo3analytics][:mysql_user][:password]
 	provider Chef::Provider::Database::MysqlUser
 	database_name node[:typo3analytics][:mysql_user][:database]
-	privileges [:select,:update,:insert,:alter,:create,:delete,:drop]
+	privileges [:select,:update,:insert,:alter,:create,:delete,:drop,"CREATE VIEW"]
 	action :grant
 end
 
