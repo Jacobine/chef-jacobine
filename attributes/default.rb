@@ -69,3 +69,10 @@ default[:typo3analytics][:supervisord_user] = "vagrant"
 
 # Cron
 default[:typo3analytics][:cron_user] = "vagrant"
+
+# Website
+default[:typo3analytics][:website][:dir] = "/var/www/analysis.local"
+default[:typo3analytics][:website][:dir_user] = "vagrant"
+default[:typo3analytics][:website][:dir_group] = "vagrant"
+default[:typo3analytics][:website][:repository] = "https://github.com/andygrunwald/TYPO3-Analytics-Web.git"
+default[:typo3analytics][:website][:revision] = "master"
