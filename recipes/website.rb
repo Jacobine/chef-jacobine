@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "composer"
+
 websiteDir = node[:typo3analytics][:website][:dir]
 websiteUser = node[:typo3analytics][:website][:dir_user]
 websiteGroup = node[:typo3analytics][:website][:dir_group]
@@ -31,12 +33,20 @@ directory websiteDir do
 end
 
 # Cloning the application
-git node[:typo3analytics][:website][:dir] do
+git websiteDir do
 	repository node[:typo3analytics][:website][:repository]
 	reference node[:typo3analytics][:website][:revision]
 	action :sync
 	user websiteUser
 	group websiteGroup
+end
+
+# composer update
+execute "composer-update" do
+	user node[:typo3analytics][:composer_update_user]
+	cwd "#{websiteDir}/www/typo3conf/ext/analysis"
+	command "composer update"
+	action :run
 end
 
 # Create Apache2 VHost
