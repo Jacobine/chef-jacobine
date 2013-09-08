@@ -26,7 +26,7 @@ mysql_connection_info = {
 	:password => node[:typo3analytics][:mysql_root][:password]
 }
 
-# Create new MySQL user
+# Create new MySQL user for analysis
 database_user node[:typo3analytics][:mysql_user][:username] do
 	connection mysql_connection_info
 	password node[:typo3analytics][:mysql_user][:password]
@@ -34,13 +34,38 @@ database_user node[:typo3analytics][:mysql_user][:username] do
 	action :create
 end
 
-# Grant access to new MySQL user
+# Grant access to new MySQL user for analysis
 database_user node[:typo3analytics][:mysql_user][:username] do
 	connection mysql_connection_info
 	password node[:typo3analytics][:mysql_user][:password]
 	provider Chef::Provider::Database::MysqlUser
 	database_name node[:typo3analytics][:mysql_user][:database]
 	privileges [:select,:update,:insert,:alter,:create,:delete,:drop,"CREATE VIEW"]
+	action :grant
+end
+
+# Create website database
+database node[:typo3analytics][:website][:mysql][:database] do
+	connection mysql_connection_info
+	provider Chef::Provider::Database::Mysql
+	action :create
+end
+
+# Create new MySQL user for website
+database_user node[:typo3analytics][:website][:mysql][:username] do
+	connection mysql_connection_info
+	password node[:typo3analytics][:website][:mysql][:password]
+	provider Chef::Provider::Database::MysqlUser
+	action :create
+end
+
+# Grant access to new MySQL user for website
+database_user node[:typo3analytics][:website][:mysql][:username] do
+	connection mysql_connection_info
+	password node[:typo3analytics][:website][:mysql][:password]
+	provider Chef::Provider::Database::MysqlUser
+	database_name node[:typo3analytics][:website][:mysql][:database]
+	privileges [:select,:update,:insert,:alter,:create,:delete,:drop]
 	action :grant
 end
 

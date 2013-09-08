@@ -80,3 +80,7 @@ default[:typo3analytics][:website][:revision] = "master"
 default[:typo3analytics][:website][:ip] = "192.168.33.55"
 default[:typo3analytics][:website][:sitename] = "analysis.local"
 default[:typo3analytics][:website][:url] = "analysis.local"
+
+default[:typo3analytics][:website][:mysql][:username] = "typo3_analysis"
+default[:typo3analytics][:website][:mysql][:password] = "typo3_analysis"
+default[:typo3analytics][:website][:mysql][:database] = "typo3_analysis"
