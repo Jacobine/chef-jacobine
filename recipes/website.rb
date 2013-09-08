@@ -25,7 +25,7 @@ websiteGroup = node[:typo3analytics][:website][:dir_group]
 directory websiteDir do
 	owner websiteUser
 	group websiteGroup
-	mode "0744"
+	mode "0775"
 	action :create
 	recursive true
 end
@@ -39,5 +39,12 @@ git node[:typo3analytics][:website][:dir] do
 	group websiteGroup
 end
 
-# @todo add apache2 vhost
+# Create Apache2 VHost
+web_app node[:typo3analytics][:website][:sitename] do
+	server_name node[:typo3analytics][:website][:url]
+	server_aliases []
+	docroot "#{websiteDir}/www"
+	enable true
+end
+
 # @todo add comment to deploy database manual
