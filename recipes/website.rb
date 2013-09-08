@@ -54,6 +54,7 @@ web_app node[:typo3analytics][:website][:sitename] do
 	ip node[:typo3analytics][:website][:ip]
 	server_name node[:typo3analytics][:website][:url]
 	server_aliases []
+	allow_override "All"
 	docroot "#{websiteDir}/www"
 	enable true
 end
