@@ -21,7 +21,7 @@
 directory node[:typo3analytics][:data_dir] do
 	owner node[:typo3analytics][:data_dir_user]
 	group node[:typo3analytics][:data_dir_group]
-	mode "0766"
+	mode "0744"
 	action :create
 	recursive true
 end
@@ -30,7 +30,7 @@ end
 directory node[:typo3analytics][:log_dir] do
 	owner node[:typo3analytics][:log_dir_user]
 	group node[:typo3analytics][:log_dir_group]
-	mode "0766"
+	mode "0744"
 	action :create
 	recursive true
 end
