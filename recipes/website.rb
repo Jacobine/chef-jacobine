@@ -41,6 +41,7 @@ end
 
 # Create Apache2 VHost
 web_app node[:typo3analytics][:website][:sitename] do
+	ip node[:typo3analytics][:website][:ip]
 	server_name node[:typo3analytics][:website][:url]
 	server_aliases []
 	docroot "#{websiteDir}/www"

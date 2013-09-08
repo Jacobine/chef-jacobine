@@ -77,5 +77,6 @@ default[:typo3analytics][:website][:dir_group] = "vagrant"
 default[:typo3analytics][:website][:repository] = "https://github.com/andygrunwald/TYPO3-Analytics-Web.git"
 default[:typo3analytics][:website][:revision] = "master"
 
+default[:typo3analytics][:website][:ip] = "192.168.33.55"
 default[:typo3analytics][:website][:sitename] = "analysis.local"
 default[:typo3analytics][:website][:url] = "analysis.local"
