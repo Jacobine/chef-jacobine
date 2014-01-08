@@ -11,6 +11,9 @@ A checkout of [TYPO3-Analytics](https://github.com/andygrunwald/TYPO3-Analytics)
 - `database`
 - `mysql`
 - `supervisor`
+- `logrotate`
+- `apache2`
+- `sudo`
 
 Attributes
 ----------

@@ -64,8 +64,11 @@ default[:typo3analytics][:ssh_keys_dir] = "/var/www/analysis/Config"
 # Binaries
 default[:typo3analytics][:console_bin] = "/var/www/analysis/console"
 
-# Supervisord
-default[:typo3analytics][:supervisord_user] = "vagrant"
+# System user
+default[:typo3analytics][:analysis][:user] = "analysis"
+default[:typo3analytics][:analysis][:group] = "www-data"
+default[:typo3analytics][:analysis][:comment] = "System user to execute analysis processes"
+default[:typo3analytics][:analysis][:shell] = "/bin/false"
 
 # Cron
 default[:typo3analytics][:cron_user] = "vagrant"
