@@ -70,6 +70,9 @@ default[:typo3analytics][:analysis][:group] = "www-data"
 default[:typo3analytics][:analysis][:comment] = "System user to execute analysis processes"
 default[:typo3analytics][:analysis][:shell] = "/bin/false"
 
+# Supervisord
+default[:typo3analytics][:supervisord][:user] = "analysis"
+
 # Cron
 default[:typo3analytics][:cron_user] = "vagrant"
 
