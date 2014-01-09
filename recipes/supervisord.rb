@@ -20,7 +20,7 @@
 include_recipe "supervisor"
 
 consoleBin = node[:typo3analytics][:console_bin]
-supervisordUser = node[:typo3analytics]:supervisord][:user]
+supervisordUser = node[:typo3analytics][:supervisord][:user]
 
 # Consumer: Download\\Git
 supervisor_service "consumer-download-git" do
