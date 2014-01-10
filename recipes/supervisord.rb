@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+include_recipe "typo3analytics::systemuser"
 include_recipe "supervisor"
 
 consoleBin = node[:typo3analytics][:console_bin]
@@ -117,8 +118,8 @@ supervisor_service "consumer-analysis-cvsanaly" do
 	autorestart true
 	autostart true
 	user supervisordUser
-	environment(:PYTHONPATH => "#{repositoryHandlerDir}:#{cvsAnalyDir}", :PATH => "/usr/local/bin:/usr/bin:/bin:#{cvsAnalyDir}")
-
+	environment "PYTHONPATH" => "#{repositoryHandlerDir}:#{cvsAnalyDir}",
+				"PATH" => "/usr/local/bin:/usr/bin:/bin:#{cvsAnalyDir}"
 	action :enable
 end
 
