@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "sudo"
+
 analysisUser = node[:typo3analytics][:analysis][:user]
 
 # Create system user to run analysis processes as a seperate user
