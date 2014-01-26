@@ -19,10 +19,9 @@
 
 include_recipe "composer"
 
-# composer update
-execute "composer-update" do
-	user node[:typo3analytics][:composer_update_user]
-	cwd node[:typo3analytics][:application_dir]
-	command "composer update"
-	action :run
+# composer install
+# Currently node[:typo3analytics][:composer_update_user] is not needed
+composer_project "Install project dependencies" do
+	project_dir node[:typo3analytics][:application_dir]
+	action :install
 end

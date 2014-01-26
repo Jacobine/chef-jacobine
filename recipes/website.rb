@@ -41,12 +41,11 @@ git websiteDir do
 	group websiteGroup
 end
 
-# composer update
-execute "composer-update" do
-	user node[:typo3analytics][:composer_update_user]
-	cwd "#{websiteDir}/www/typo3conf/ext/analysis"
-	command "composer update"
-	action :run
+# composer install
+# Currently node[:typo3analytics][:composer_update_user] is not needed
+composer_project "Install website project dependencies" do
+	project_dir "#{websiteDir}/www/typo3conf/ext/analysis"
+	action :install
 end
 
 # Create Apache2 VHost
