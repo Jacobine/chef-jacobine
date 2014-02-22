@@ -17,10 +17,5 @@
 # limitations under the License.
 #
 
-include_recipe "typo3analytics::python"
-include_recipe "typo3analytics::composer"
-include_recipe "typo3analytics::directories"
-include_recipe "typo3analytics::database"
-include_recipe "typo3analytics::ssh"
-include_recipe "typo3analytics::supervisord"
-include_recipe "typo3analytics::logrotate"
+# The default recipe is empty
+# You have to call the single recipes own your own
