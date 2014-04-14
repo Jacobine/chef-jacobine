@@ -107,6 +107,18 @@ supervisor_service "consumer-analysis-phploc" do
 	action :enable
 end
 
+# Consumer: Analysis\\PDepend
+supervisor_service "consumer-analysis-pdepend" do
+	command "php #{consoleBin} analysis:consumer Analysis\\\\PDepend"
+	process_name "%(program_name)s_%(process_num)02d"
+	numprocs 2
+	autorestart true
+	autostart true
+	user supervisordUser
+
+	action :enable
+end
+
 repositoryHandlerDir = node[:repositoryhandler][:destination]
 cvsAnalyDir = node[:cvsanaly][:destination]
 
