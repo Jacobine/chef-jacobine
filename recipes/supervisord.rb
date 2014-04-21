@@ -111,7 +111,7 @@ end
 supervisor_service "consumer-analysis-pdepend" do
 	command "php #{consoleBin} analysis:consumer Analysis\\\\PDepend"
 	process_name "%(program_name)s_%(process_num)02d"
-	numprocs 2
+	numprocs 1
 	autorestart true
 	autostart true
 	user supervisordUser
