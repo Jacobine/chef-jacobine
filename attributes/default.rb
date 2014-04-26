@@ -50,9 +50,9 @@ default[:jacobine][:mysql_host] = "localhost"
 default[:jacobine][:mysql_root][:username] = "root"
 default[:jacobine][:mysql_root][:password] = ""
 
-default[:jacobine][:mysql_user][:username] = "analysis"
-default[:jacobine][:mysql_user][:password] = "analysis"
-default[:jacobine][:mysql_user][:database] = "typo3"
+default[:jacobine][:mysql_user][:username] = "jacobine"
+default[:jacobine][:mysql_user][:password] = "jacobine"
+default[:jacobine][:mysql_user][:database] = "jacobine"
 
 # Gerrie settings
 default[:jacobine][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/gerrie"
@@ -87,6 +87,6 @@ default[:jacobine][:website][:ip] = "192.168.33.55"
 default[:jacobine][:website][:sitename] = "analysis.local"
 default[:jacobine][:website][:url] = "analysis.local"
 
-default[:jacobine][:website][:mysql][:username] = "typo3_analysis"
-default[:jacobine][:website][:mysql][:password] = "typo3_analysis"
-default[:jacobine][:website][:mysql][:database] = "typo3_analysis"
+default[:jacobine][:website][:mysql][:username] = "jacobine_web"
+default[:jacobine][:website][:mysql][:password] = "jacobine_web"
+default[:jacobine][:website][:mysql][:database] = "jacobine_web"
