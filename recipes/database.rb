@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: Jacobine
-# Recipe:: databases
+# Recipe:: database
 #
 # Copyright 2013, Andy Grunwald
 #
