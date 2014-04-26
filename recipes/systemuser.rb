@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: systemuser
 #
 # Copyright 2013, Andy Grunwald
@@ -17,12 +17,12 @@
 # limitations under the License.
 #
 
-analysisUser = node[:typo3analytics][:analysis][:user]
+analysisUser = node[:jacobine][:analysis][:user]
 
 # Create system user to run analysis processes as a seperate user
 user analysisUser do
-	comment node[:typo3analytics][:analysis][:comment]
-	gid node[:typo3analytics][:analysis][:group]
+	comment node[:jacobine][:analysis][:comment]
+	gid node[:jacobine][:analysis][:group]
 	system true
-	shell node[:typo3analytics][:analysis][:shell]
+	shell node[:jacobine][:analysis][:shell]
 end

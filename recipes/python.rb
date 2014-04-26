@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: python
 #
 # Copyright 2013, Andy Grunwald

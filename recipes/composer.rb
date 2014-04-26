@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: composer
 #
 # Copyright 2013, Andy Grunwald
@@ -20,8 +20,8 @@
 include_recipe "composer"
 
 # composer install
-# Currently node[:typo3analytics][:composer_update_user] is not needed
+# Currently node[:jacobine][:composer_update_user] is not needed
 composer_project "Install project dependencies" do
-	project_dir node[:typo3analytics][:application_dir]
+	project_dir node[:jacobine][:application_dir]
 	action :install
 end

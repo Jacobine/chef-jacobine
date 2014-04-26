@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: ssh
 #
 # Copyright 2013, Andy Grunwald
@@ -20,7 +20,7 @@
 # Manually SSH Key deployment
 # There must be a better way ... If you know one
 # Please let me know
-pathToKeys = node[:typo3analytics][:ssh_keys_dir]
+pathToKeys = node[:jacobine][:ssh_keys_dir]
 keysToDeploy = %w(id_rsa id_rsa.pub)
 
 # Copy keys

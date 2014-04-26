@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: directories
 #
 # Copyright 2013, Andy Grunwald
@@ -18,18 +18,18 @@
 #
 
 # Data directory
-directory node[:typo3analytics][:data_dir] do
-	owner node[:typo3analytics][:data_dir_user]
-	group node[:typo3analytics][:data_dir_group]
+directory node[:jacobine][:data_dir] do
+	owner node[:jacobine][:data_dir_user]
+	group node[:jacobine][:data_dir_group]
 	mode "0744"
 	action :create
 	recursive true
 end
 
 # Log directory
-directory node[:typo3analytics][:log_dir] do
-	owner node[:typo3analytics][:log_dir_user]
-	group node[:typo3analytics][:log_dir_group]
+directory node[:jacobine][:log_dir] do
+	owner node[:jacobine][:log_dir_user]
+	group node[:jacobine][:log_dir_group]
 	mode "0744"
 	action :create
 	recursive true

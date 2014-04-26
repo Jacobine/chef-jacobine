@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: clone
 #
 # Copyright 2013, Andy Grunwald
@@ -20,19 +20,19 @@
 include_recipe "git"
 
 # Data directory
-directory node[:typo3analytics][:application_dir] do
-	owner node[:typo3analytics][:application_dir_user]
-	group node[:typo3analytics][:application_dir_group]
+directory node[:jacobine][:application_dir] do
+	owner node[:jacobine][:application_dir_user]
+	group node[:jacobine][:application_dir_group]
 	mode "0755"
 	action :create
 	recursive true
 end
 
 # git clone
-git node[:typo3analytics][:application_dir] do
-	repository node[:typo3analytics][:git_repository]
-	reference node[:typo3analytics][:git_revision]
+git node[:jacobine][:application_dir] do
+	repository node[:jacobine][:git_repository]
+	reference node[:jacobine][:git_revision]
 	action :sync
-	user node[:typo3analytics][:application_dir_user]
-	group node[:typo3analytics][:application_dir_group]
+	user node[:jacobine][:application_dir_user]
+	group node[:jacobine][:application_dir_group]
 end

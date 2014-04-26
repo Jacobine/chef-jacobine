@@ -1,10 +1,10 @@
-typo3analytics Cookbook
+Jacobine Cookbook
 ========================
-Sets up a working environment for [TYPO3-Analytics](https://github.com/andygrunwald/TYPO3-Analytics)
+Sets up a working environment for [Jacobine](https://github.com/andygrunwald/Jacobine)
 
 Requirements
 ------------
-A checkout of [TYPO3-Analytics](https://github.com/andygrunwald/TYPO3-Analytics)
+A checkout of [Jacobine](https://github.com/andygrunwald/Jacobine)
 
 #### packages
 - `composer`
@@ -17,7 +17,7 @@ A checkout of [TYPO3-Analytics](https://github.com/andygrunwald/TYPO3-Analytics)
 Attributes
 ----------
 
-#### typo3analytics::default
+#### jacobine::default
 <table>
   <tr>
     <th>Key</th>
@@ -26,7 +26,7 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>[:typo3analytics][:composer_file]</tt></td>
+    <td><tt>[:jacobine][:composer_file]</tt></td>
     <td>string</td>
     <td>Path to composer.json</td>
     <td><tt>/vagrant/composer.json</tt></td>
@@ -35,15 +35,15 @@ Attributes
 
 Usage
 -----
-#### typo3analytics::default
+#### jacobine::default
 
-Just include `typo3analytics` in your node's `run_list`:
+Just include `jacobine` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[typo3analytics]"
+    "recipe[jacobine]"
   ]
 }
 ```

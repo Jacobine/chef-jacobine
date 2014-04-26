@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: website
 #
 # Copyright 2013, Andy Grunwald
@@ -19,9 +19,9 @@
 
 include_recipe "composer"
 
-websiteDir = node[:typo3analytics][:website][:dir]
-websiteUser = node[:typo3analytics][:website][:dir_user]
-websiteGroup = node[:typo3analytics][:website][:dir_group]
+websiteDir = node[:jacobine][:website][:dir]
+websiteUser = node[:jacobine][:website][:dir_user]
+websiteGroup = node[:jacobine][:website][:dir_group]
 
 # Website directory
 directory websiteDir do
@@ -34,24 +34,24 @@ end
 
 # Cloning the application
 git websiteDir do
-	repository node[:typo3analytics][:website][:repository]
-	reference node[:typo3analytics][:website][:revision]
+	repository node[:jacobine][:website][:repository]
+	reference node[:jacobine][:website][:revision]
 	action :sync
 	user websiteUser
 	group websiteGroup
 end
 
 # composer install
-# Currently node[:typo3analytics][:composer_update_user] is not needed
+# Currently node[:jacobine][:composer_update_user] is not needed
 composer_project "Install website project dependencies" do
 	project_dir "#{websiteDir}/www/typo3conf/ext/analysis"
 	action :install
 end
 
 # Create Apache2 VHost
-web_app node[:typo3analytics][:website][:sitename] do
-	ip node[:typo3analytics][:website][:ip]
-	server_name node[:typo3analytics][:website][:url]
+web_app node[:jacobine][:website][:sitename] do
+	ip node[:jacobine][:website][:ip]
+	server_name node[:jacobine][:website][:url]
 	server_aliases []
 	allow_override "All"
 	docroot "#{websiteDir}/www"

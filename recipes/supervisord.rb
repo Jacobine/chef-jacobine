@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: supervisord
 #
 # Copyright 2013, Andy Grunwald
@@ -17,11 +17,11 @@
 # limitations under the License.
 #
 
-include_recipe "typo3analytics::systemuser"
+include_recipe "jacobine::systemuser"
 include_recipe "supervisor"
 
-consoleBin = node[:typo3analytics][:console_bin]
-supervisordUser = node[:typo3analytics][:supervisord][:user]
+consoleBin = node[:jacobine][:console_bin]
+supervisordUser = node[:jacobine][:supervisord][:user]
 
 # Consumer: Download\\Git
 supervisor_service "consumer-download-git" do

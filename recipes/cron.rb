@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: cron
 #
 # Copyright 2013, Andy Grunwald
@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-phpBin = node[:typo3analytics][:php_bin]
-consoleBin = node[:typo3analytics][:console_bin]
-cronUser = node[:typo3analytics][:cron_user]
+phpBin = node[:jacobine][:php_bin]
+consoleBin = node[:jacobine][:console_bin]
+cronUser = node[:jacobine][:cron_user]
 
 # Crontab entry for typo3:get.typo3.org console command
 # Every day at 00:15, 04:15, 08:15, 12:15, 16:15, 20:15

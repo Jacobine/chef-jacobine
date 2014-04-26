@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Attributes:: default
 #
 # Copyright 2013, Andy Grunwald
@@ -18,75 +18,75 @@
 #
 
 # Application
-default[:typo3analytics][:application_dir] = "/var/www/analysis"
-default[:typo3analytics][:application_dir_user] = "vagrant"
-default[:typo3analytics][:application_dir_group] = "vagrant"
+default[:jacobine][:application_dir] = "/var/www/analysis"
+default[:jacobine][:application_dir_user] = "vagrant"
+default[:jacobine][:application_dir_group] = "vagrant"
 
-default[:typo3analytics][:git_repository] = "https://github.com/andygrunwald/TYPO3-Analytics.git"
-default[:typo3analytics][:git_revision] = "master"
+default[:jacobine][:git_repository] = "https://github.com/andygrunwald/Jacobine.git"
+default[:jacobine][:git_revision] = "master"
 
 # Composer
 # User who will execute the update
-default[:typo3analytics][:composer_update_user] = "root"
+default[:jacobine][:composer_update_user] = "root"
 
 # Directory where downloaded data will be stored
-default[:typo3analytics][:data_dir] = "/var/www/analysis-data/TYPO3"
-default[:typo3analytics][:data_dir_user] = "vagrant"
-default[:typo3analytics][:data_dir_group] = "vagrant"
+default[:jacobine][:data_dir] = "/var/www/analysis-data/TYPO3"
+default[:jacobine][:data_dir_user] = "vagrant"
+default[:jacobine][:data_dir_group] = "vagrant"
 
 # Directory to store the log files
-default[:typo3analytics][:log_dir] = "/var/log/analysis"
-default[:typo3analytics][:log_dir_user] = "vagrant"
-default[:typo3analytics][:log_dir_group] = "vagrant"
+default[:jacobine][:log_dir] = "/var/log/analysis"
+default[:jacobine][:log_dir_user] = "vagrant"
+default[:jacobine][:log_dir_group] = "vagrant"
 
 # PHP settings
-default[:typo3analytics][:php_bin] = "/usr/bin/php"
+default[:jacobine][:php_bin] = "/usr/bin/php"
 
 # MySQL settings
-default[:typo3analytics][:mysql_bin] = "/usr/bin/mysql"
-default[:typo3analytics][:mysql_host] = "localhost"
+default[:jacobine][:mysql_bin] = "/usr/bin/mysql"
+default[:jacobine][:mysql_host] = "localhost"
 
 # MySQL user
-default[:typo3analytics][:mysql_root][:username] = "root"
-default[:typo3analytics][:mysql_root][:password] = ""
+default[:jacobine][:mysql_root][:username] = "root"
+default[:jacobine][:mysql_root][:password] = ""
 
-default[:typo3analytics][:mysql_user][:username] = "analysis"
-default[:typo3analytics][:mysql_user][:password] = "analysis"
-default[:typo3analytics][:mysql_user][:database] = "typo3"
+default[:jacobine][:mysql_user][:username] = "analysis"
+default[:jacobine][:mysql_user][:password] = "analysis"
+default[:jacobine][:mysql_user][:database] = "typo3"
 
 # Gerrie settings
-default[:typo3analytics][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/gerrie"
-default[:typo3analytics][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-review.typo3.org.yml"
+default[:jacobine][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/gerrie"
+default[:jacobine][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-review.typo3.org.yml"
 
 # SSH Keys
-default[:typo3analytics][:ssh_keys_dir] = "/var/www/analysis/Config"
+default[:jacobine][:ssh_keys_dir] = "/var/www/analysis/Config"
 
 # Binaries
-default[:typo3analytics][:console_bin] = "/var/www/analysis/console"
+default[:jacobine][:console_bin] = "/var/www/analysis/console"
 
 # System user
-default[:typo3analytics][:analysis][:user] = "analysis"
-default[:typo3analytics][:analysis][:group] = "www-data"
-default[:typo3analytics][:analysis][:comment] = "System user to execute analysis processes"
-default[:typo3analytics][:analysis][:shell] = "/bin/false"
+default[:jacobine][:analysis][:user] = "analysis"
+default[:jacobine][:analysis][:group] = "www-data"
+default[:jacobine][:analysis][:comment] = "System user to execute analysis processes"
+default[:jacobine][:analysis][:shell] = "/bin/false"
 
 # Supervisord
-default[:typo3analytics][:supervisord][:user] = "analysis"
+default[:jacobine][:supervisord][:user] = "analysis"
 
 # Cron
-default[:typo3analytics][:cron_user] = "vagrant"
+default[:jacobine][:cron_user] = "vagrant"
 
 # Website
-default[:typo3analytics][:website][:dir] = "/var/www/analysis.local"
-default[:typo3analytics][:website][:dir_user] = "vagrant"
-default[:typo3analytics][:website][:dir_group] = "vagrant"
-default[:typo3analytics][:website][:repository] = "https://github.com/andygrunwald/TYPO3-Analytics-Web.git"
-default[:typo3analytics][:website][:revision] = "master"
+default[:jacobine][:website][:dir] = "/var/www/analysis.local"
+default[:jacobine][:website][:dir_user] = "vagrant"
+default[:jacobine][:website][:dir_group] = "vagrant"
+default[:jacobine][:website][:repository] = "https://github.com/andygrunwald/Jacobine-Web.git"
+default[:jacobine][:website][:revision] = "master"
 
-default[:typo3analytics][:website][:ip] = "192.168.33.55"
-default[:typo3analytics][:website][:sitename] = "analysis.local"
-default[:typo3analytics][:website][:url] = "analysis.local"
+default[:jacobine][:website][:ip] = "192.168.33.55"
+default[:jacobine][:website][:sitename] = "analysis.local"
+default[:jacobine][:website][:url] = "analysis.local"
 
-default[:typo3analytics][:website][:mysql][:username] = "typo3_analysis"
-default[:typo3analytics][:website][:mysql][:password] = "typo3_analysis"
-default[:typo3analytics][:website][:mysql][:database] = "typo3_analysis"
+default[:jacobine][:website][:mysql][:username] = "typo3_analysis"
+default[:jacobine][:website][:mysql][:password] = "typo3_analysis"
+default[:jacobine][:website][:mysql][:database] = "typo3_analysis"

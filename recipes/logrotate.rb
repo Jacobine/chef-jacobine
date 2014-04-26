@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: typo3analytics
+# Cookbook Name:: Jacobine
 # Recipe:: logrotate
 #
 # Copyright 2013, Andy Grunwald
@@ -19,7 +19,7 @@
 
 include_recipe "logrotate"
 
-logDir = node[:typo3analytics][:log_dir]
+logDir = node[:jacobine][:log_dir]
 
 # Consumer: Crawler\\GerritProject
 logrotate_app "analysis-crawler-gerritproject" do
