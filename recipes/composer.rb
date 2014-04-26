@@ -20,7 +20,6 @@
 include_recipe "composer"
 
 # composer install
-# Currently node[:jacobine][:composer_update_user] is not needed
 composer_project "Install project dependencies" do
 	project_dir node[:jacobine][:application_dir]
 	action :install

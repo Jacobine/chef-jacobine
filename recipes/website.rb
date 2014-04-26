@@ -42,7 +42,6 @@ git websiteDir do
 end
 
 # composer install
-# Currently node[:jacobine][:composer_update_user] is not needed
 composer_project "Install website project dependencies" do
 	project_dir "#{websiteDir}/www/typo3conf/ext/analysis"
 	action :install

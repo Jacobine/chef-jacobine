@@ -25,10 +25,6 @@ default[:jacobine][:application_dir_group] = "vagrant"
 default[:jacobine][:git_repository] = "https://github.com/andygrunwald/Jacobine.git"
 default[:jacobine][:git_revision] = "master"
 
-# Composer
-# User who will execute the update
-default[:jacobine][:composer_update_user] = "root"
-
 # Directory where downloaded data will be stored
 default[:jacobine][:data_dir] = "/var/www/analysis-data/TYPO3"
 default[:jacobine][:data_dir_user] = "vagrant"
