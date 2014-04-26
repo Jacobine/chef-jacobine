@@ -56,5 +56,3 @@ web_app node[:jacobine][:website][:sitename] do
 	docroot "#{websiteDir}/www"
 	enable true
 end
-
-# @todo add comment to deploy database manual
