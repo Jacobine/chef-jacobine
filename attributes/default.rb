@@ -54,9 +54,6 @@ default[:jacobine][:mysql_user][:database] = "jacobine"
 default[:jacobine][:gerrie_dir] = "/var/www/analysis/vendor/andygrunwald/gerrie"
 default[:jacobine][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-review.typo3.org.yml"
 
-# SSH Keys
-default[:jacobine][:ssh_keys_dir] = "/var/www/analysis/Config"
-
 # Binaries
 default[:jacobine][:console_bin] = "/var/www/analysis/console"
 
