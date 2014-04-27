@@ -16,34 +16,42 @@ A checkout of [Jacobine](https://github.com/andygrunwald/Jacobine)
 
 Attributes
 ----------
-
-#### jacobine::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>[:jacobine][:composer_file]</tt></td>
-    <td>string</td>
-    <td>Path to composer.json</td>
-    <td><tt>/vagrant/composer.json</tt></td>
-  </tr>
-</table>
+This is the main cookbook to deploy the [Jacobine](https://github.com/andygrunwald/Jacobine) application.
+Please see attributes/default.rb for all available attributes.
 
 Usage
 -----
+This is the main cookbook to deploy the [Jacobine](https://github.com/andygrunwald/Jacobine) application.
+Please see recipes/* for all available recipes. Here is a small list about available recipes:
+
+* `clone`: Creates the directory for the application and clones Jacobine in the new directory
+* `composer`: Executes a composer install command to install all (PHP based) dependencies of Jacobine
+* `cron`: Adds commands as a cronjob to the crontab of the deployed node
+* `database`: Sets up the mysql database + user for Jacobine backend and frontend and imports the basic scheme
+* `default`: Empty recipe to fits Chef needs
+* `directories`: Creation of various directories for data storage and logs
+* `logrotate`: Configures logrotate to rotate written logs by Jacobine
+* `supervisord`: Configures supervisor to take care of our consumers
+* `systemuser`: Setup of a systemuser to execute Jacobines processes under an own user
+* `website`: Setup of the Jacobine FE (create directories, clone, deploy webservers vhost, etc.)
+
 #### jacobine::default
 
-Just include `jacobine` in your node's `run_list`:
+The default cookbook is empty.
+The normal way is to add every single recipe to your deployment.
+
+The Jacobine ecosystem uses this cookbook to deploy its [Vagrant machine](https://github.com/andygrunwald/Jacobine-Vagrant) + live servers.
+
+#### jacobine::*
+
+Choose your recipe you want to add to your run list from recipes/* and include it in your node's `run_list`.
+E.g. for the database recipe:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[jacobine]"
+    "recipe[jacobine::database]"
   ]
 }
 ```
@@ -54,10 +62,9 @@ This code is released under the terms of the [Apache License in version 2.0](htt
 
 Contributing
 ------------
-
-1. Fork the repository on Github
-2. Create a named feature branch (`git checkout -b add_component_x`)
+1. Fork and clone it (`git clone https://github.com/andygrunwald/chef-jacobine.git`)
+2. Create a named feature branch (`git checkout -b my-new-feature`)
 3. Write you change (hack hack hack)
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Submit a [Pull Request using Github](https://help.github.com/articles/creating-a-pull-request)
