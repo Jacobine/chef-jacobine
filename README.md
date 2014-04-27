@@ -48,6 +48,10 @@ Just include `jacobine` in your node's `run_list`:
 }
 ```
 
+License
+------------
+This code is released under the terms of the [Apache License in version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
 Contributing
 ------------
 
