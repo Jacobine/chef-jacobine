@@ -21,6 +21,8 @@ include_recipe "logrotate"
 
 logDir = node[:jacobine][:log_dir]
 
+#TODO Refactor logrotates for a loop with configuration
+
 # Consumer: Crawler\\Gerrit
 logrotate_app "analysis-crawler-gerrit" do
 	cookbook "logrotate"
