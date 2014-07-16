@@ -57,6 +57,9 @@ default[:jacobine][:gerrie_configfile] = "/var/www/analysis/Config/gerrit-review
 # Binaries
 default[:jacobine][:console_bin] = "/var/www/analysis/console"
 
+# Logrotate
+default[:jacobine][:logrotate][:logs] = []
+
 # System user
 default[:jacobine][:analysis][:user] = "analysis"
 default[:jacobine][:analysis][:group] = "www-data"
@@ -65,15 +68,17 @@ default[:jacobine][:analysis][:shell] = "/bin/false"
 
 # Supervisord
 default[:jacobine][:supervisord][:user] = "analysis"
+default[:jacobine][:supervisord][:processes] = []
 
 # Cron
-default[:jacobine][:cron_user] = "vagrant"
+default[:jacobine][:cron][:user] = "vagrant"
+default[:jacobine][:cron][:processes] = []
 
 # Website
 default[:jacobine][:website][:dir] = "/var/www/analysis.local"
 default[:jacobine][:website][:dir_user] = "vagrant"
 default[:jacobine][:website][:dir_group] = "vagrant"
-default[:jacobine][:website][:repository] = "https://github.com/andygrunwald/Jacobine-Web.git"
+default[:jacobine][:website][:repository] = "https://github.com/andygrunwald/Jacobine-Web-Frontend.git"
 default[:jacobine][:website][:revision] = "master"
 
 default[:jacobine][:website][:ip] = "192.168.33.55"
