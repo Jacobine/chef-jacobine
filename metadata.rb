@@ -6,12 +6,13 @@ description      'Installs/Configures Jacobine'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '3.4.1'
 
+depends "git"
 depends "composer"
 depends "database"
-depends "mysql"
-depends "supervisor"
-depends "logrotate"
-depends "apache2"
 depends "apt"
 depends "dotdeb"
+depends "php"
 depends "linguist"
+depends "logrotate"
+depends "supervisor"
+depends "apache2"
