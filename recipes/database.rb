@@ -48,7 +48,7 @@ databases.each do |database|
 		password node[:jacobine][:mysql_user][:password]
 		provider Chef::Provider::Database::MysqlUser
 		database_name database
-		privileges [:select,:update,:insert,:alter,:create,:delete,:drop,"CREATE VIEW"]
+		privileges [:select,:update,:insert,:alter,:create,:delete,:drop,"CREATE VIEW", "Index"]
 		action :grant
 	end
 end
